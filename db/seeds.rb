@@ -7,14 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-category = ["chinese", "italian", "japanese", "french", "belgian"].sample
-
 5.times do
   restaurant = Restaurant.new(
-    name: Faker::Hipster.words(spaces_allowed: true),
+    name: Faker::Hipster.word,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     phone_number: Faker::PhoneNumber.cell_phone,
-    category: category
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   restaurant.save!
 end
